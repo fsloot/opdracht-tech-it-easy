@@ -241,3 +241,16 @@ console.log(tvLeft);
 totalTvLeft.textContent = tvLeft;
 // Hier vind hij echter dat type number not assignable is to type string?
 // terwijl dat eerder wel kon?
+
+
+//Opdracht 3a:
+const tvList = document.getElementById('tv-list');
+const tvTotalList = inventory.filter((inventoryTotalTvList) => {
+      return tvList.textContent = inventoryTotalTvList.brand;
+//   return tvList.innerHTML = `<li>${inventoryTotalTvList.brand}</li>`;
+});
+
+// for (let i = 0; i < inventory.length; i++) {
+// tvList.textContent = inventory[i].brand;
+//   tvList.innerHTML = `<li>${inventory[i].brand}</li>`;
+// };

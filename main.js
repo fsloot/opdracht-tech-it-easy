@@ -167,7 +167,6 @@ const inventory = [
 const tvType = inventory.map((inventoryTv) => {
   return inventoryTv.type;
 });
-
 console.log(tvType);
 
 
@@ -175,7 +174,6 @@ console.log(tvType);
 const tvSoldout = inventory.filter((inventorySoldout) => {
   return inventorySoldout.originalStock === inventorySoldout.sold;
 })
-
 console.log(tvSoldout);
 
 
@@ -183,12 +181,63 @@ console.log(tvSoldout);
 const tvAmbilight = inventory.filter((inventoryAmbilight) => {
   return inventoryAmbilight.options.ambiLight ;
 });
-
 console.log(tvAmbilight);
 
 
 // Opdracht 1d:
 inventory.sort((a, b) =>
     a.price - b.price);
-
 console.log(inventory);
+
+
+//Opdracht 2a:
+const tvSold = inventory.map((inventorySold) => {
+  return inventorySold.sold;
+});
+console.log(tvSold);
+
+let counterTvSold = 0;
+for (let i = 0; i < tvSold.length; i++) {
+  counterTvSold += tvSold[i];
+};
+console.log(counterTvSold);
+
+
+//Opdracht 2b:
+const totaTvSold = document.getElementById('total-tv-sold');
+
+console.log(totaTvSold);
+
+totaTvSold.textContent = counterTvSold;
+
+
+//Opdracht 2c:
+const tvPurchased = inventory.map((inventoryPurchased) => {
+  return inventoryPurchased.originalStock;
+});
+console.log(tvPurchased);
+
+let counterTvPurchased = 0;
+for (let i = 0; i < tvPurchased.length; i++) {
+  counterTvPurchased += tvPurchased[i];
+};
+console.log(counterTvPurchased);
+
+
+//opdracht 2d:
+const totalTvPurchased = document.getElementById('total-tv-purchased');
+console.log(totalTvPurchased);
+
+totalTvPurchased.textContent = counterTvPurchased;
+
+
+//Opdracht 2e:
+const totalTvLeft = document.getElementById('total-tv-left');
+console.log(totalTvLeft);
+
+const tvLeft = counterTvPurchased - counterTvSold;
+console.log(tvLeft);
+
+totalTvLeft.textContent = tvLeft;
+// Hier vind hij echter dat type number not assignable is to type string?
+// terwijl dat eerder wel kon?

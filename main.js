@@ -161,3 +161,34 @@ const inventory = [
     sold: 8,
   },
 ];
+
+
+// Opdracht 1a:
+const tvType = inventory.map((inventoryTv) => {
+  return inventoryTv.type;
+});
+
+console.log(tvType);
+
+
+// Opdracht 1b:
+const tvSoldout = inventory.filter((inventorySoldout) => {
+  return inventorySoldout.originalStock === inventorySoldout.sold;
+})
+
+console.log(tvSoldout);
+
+
+// Opdracht 1c:
+const tvAmbilight = inventory.filter((inventoryAmbilight) => {
+  return inventoryAmbilight.options.ambiLight ;
+});
+
+console.log(tvAmbilight);
+
+
+// Opdracht 1d:
+inventory.sort((a, b) =>
+    a.price - b.price);
+
+console.log(inventory);

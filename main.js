@@ -178,6 +178,10 @@ console.log(tvSoldout);
 
 
 // Opdracht 1c:
+// declareer een variabele waarin we de ambilight opslaan
+// loop over de array heen van tv's
+// check voor iedere vgl of die ambilight heeft
+
 const tvAmbilight = inventory.filter((inventoryAmbilight) => {
   return inventoryAmbilight.options.ambiLight ;
 });
@@ -204,11 +208,11 @@ console.log(counterTvSold);
 
 
 //Opdracht 2b:
-const totaTvSold = document.getElementById('total-tv-sold');
+const totalTvSold = document.getElementById('total-tv-sold');
 
-console.log(totaTvSold);
+console.log(totalTvSold);
 
-totaTvSold.textContent = counterTvSold;
+totalTvSold.textContent = counterTvSold;
 
 
 //Opdracht 2c:
@@ -245,12 +249,19 @@ totalTvLeft.textContent = tvLeft;
 
 //Opdracht 3a:
 const tvList = document.getElementById('tv-list');
-const tvTotalList = inventory.filter((inventoryTotalTvList) => {
-      return tvList.textContent = inventoryTotalTvList.brand;
-//   return tvList.innerHTML = `<li>${inventoryTotalTvList.brand}</li>`;
+const listItem = inventory.map((tvItem) => {
+  return `<li>${tvItem.brand}</li>`;
 });
+tvList.innerHTML = `${listItem.join("")}`;
 
-// for (let i = 0; i < inventory.length; i++) {
-// tvList.textContent = inventory[i].brand;
-//   tvList.innerHTML = `<li>${inventory[i].brand}</li>`;
-// };
+
+//Opdracht 3b:
+function getTvList(tvObject) {
+  const tvList = document.getElementById('tv-list');
+  const listItem = tvObject.map((tvItem) => {
+    return `<li>${tvItem.brand}</li>`;
+  });
+  return tvList.innerHTML = `${listItem.join("")}`;
+};
+
+getTvList(inventory);

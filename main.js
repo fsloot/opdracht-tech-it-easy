@@ -265,3 +265,76 @@ function getTvList(tvObject) {
 };
 
 getTvList(inventory);
+
+
+//Opdracht 4a;
+// Ik krijg en hele array met tv's, ik weet niet goed hoe ik er 1 pecifieke uit moet krijgen dmv een functie
+function getOneTv(getTv) {
+  const oneTvString = getTv.map((oneTv) => {
+    return oneTv.brand + " " + oneTv.type + " - " + oneTv.name;
+  });
+  return oneTvString;
+};
+
+console.log(getOneTv(inventory));
+
+
+//Opdracht 4b;
+function getTvPrice(price) {
+  return "€" + price + ",-";
+};
+
+// of:
+// function getTvPrice(getPriceArray) {
+//   const oneTvPrice = getPriceArray.map((getPrice) => {
+//     return "€" + getPrice.price + ",-";
+//   });
+//   return oneTvPrice;
+// };
+
+console.log(getTvPrice(inventory[0].price));
+
+
+//Opdracht 4c:
+function tvScreenSizes(tvArray) {
+  const tvSizes = tvArray.map((screenSize) => {
+    const newSizesArray = [];
+    for (let i = 0; i < screenSize.availableSizes.length; i++) {
+      if (i > 0 && i < screenSize.availableSizes.length) {
+        newSizesArray.push(" | " + screenSize.availableSizes[i] + " inches" + "(" + Math.round(screenSize.availableSizes[i] * 2.54) + " cm)");
+      } else {
+        newSizesArray.push(screenSize.availableSizes[i] + " inches" + "(" + Math.round(screenSize.availableSizes[i] * 2.54) + " cm)");
+      }
+    };
+    return newSizesArray;
+  });
+  return tvSizes;
+};
+
+console.log(tvScreenSizes(inventory));
+
+
+//Opdracht 4d;
+// Er komt wel de juiste info op het scherm maar ik heb het gevoel dat ik het veel te omslachtig doe
+const specificTv = getOneTv(inventory);
+for (let i = 0; i < specificTv.length; i++) {
+  if (specificTv[i].includes("43PUS6504/12")) {
+    const tvSpecific = document.getElementById('specific-tv');
+    tvSpecific.textContent = specificTv[i];
+  };
+};
+
+const priceList = (inventory);
+for (let i = 0; i < priceList.length; i++) {
+  if (priceList[i].type.includes("43PUS6504/12")) {
+    const tvSpecificPrice = document.getElementById('tv-price');
+    tvSpecificPrice.textContent = getTvPrice(priceList[i].price);
+  };
+};
+
+for (let i = 0; i < inventory.length; i++) {
+  if (inventory[i].type.includes("43PUS6504/12")) {
+    const tvSpecificSize = document.getElementById('inches');
+    tvSpecificSize.textContent = tvScreenSizes(inventory)[i].join("");
+  };
+};

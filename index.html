@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
     <title>Tech It Easy Dashboard</title>
 </head>
 <body>
+<p>Het aantal verkochte tv's is
+    <span class="sold" id="total-tv-sold">[total sold]</span>
+    en het aantal ingekochte tv's is
+    <span class="purchased" id="total-tv-purchased">[total purchased]</span>.
+</p>
+<p>Het aantal overgebleven tv's is
+    <span class="left" id="total-tv-left">[total left]</span>.
+</p>
 
+<ul id="tv-list">
+
+</ul>
+
+<div>
+    <p id="specific-tv">[tv]</p>
+    <p id="tv-price">[price]</p>
+    <p id="inches">[size]</p>
+</div>
+
+    <button type="button">Sorteer op prijs</button>
+    <button type="button">AmbiLight TV's</button>
+    <button onclick="myFunction()">Uitverkochte exemplaren</button>
+    <p id="sold-out"></p>
+
+<script src="main.js"></script>
 </body>
 </html>

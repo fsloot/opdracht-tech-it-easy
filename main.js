@@ -338,3 +338,31 @@ for (let i = 0; i < inventory.length; i++) {
     tvSpecificSize.textContent = tvScreenSizes(inventory)[i].join("");
   };
 };
+
+
+// Bonusopdracht 1:
+function showTvSoldout(showSoldout) {
+  const tvSoldout = showSoldout.filter((inventorySoldout) => {
+    return inventorySoldout.originalStock === inventorySoldout.sold;
+  });
+  return tvSoldout;
+};
+
+function showAmbiLight(AmbilightArray) {
+  const tvAmbilight = AmbilightArray.filter((inventoryAmbilight) => {
+    return inventoryAmbilight.options.ambiLight;
+  });
+  return tvAmbilight;
+};
+
+
+function showSortedPrice(priceSorted) {
+  return priceSorted.sort((a, b) =>
+      a.price - b.price);
+};
+
+
+// Ik kom er niet goed uit, weet niet hoe ik eea aan een button moet linken
+function myFunction() {
+  document.getElementById("sold-out").innerHTML = showTvSoldout(inventory);
+};
